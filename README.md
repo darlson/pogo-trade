@@ -1,68 +1,113 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Project Pogo Shiny
+## IDEA and USER:
 
-## Available Scripts
+A website accessible from mobile or computer where users can create accounts to track what shiny pokemon they have in Pokemon Go and what they are willing to trade. Currently most trades are arranged either in person or via Discord or Slack, depending on location. In the local Utah Valley slack server, trading usually works like this:
 
-In the project directory, you can run:
+<img src = './images/slacktrades.png' />
 
-### `npm start`
+Custom emojis added to the slack channel serve as identifiers for the pokemon to be traded, but the format isn't ideal in my opinion. My goal is for people to be able to share their user profile (e.g. http://pogoshiny.com/user/darlson) so others can view their shiny collection and what they have available to trade. They can then reach out to each other to arrange offers and trades.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Target users are people who regularly play Pokemon Go and desire to catch 'em all.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Features:
+##### MVP:
+- Clean user interface displaying their shiny pokemon, whether to show off or to trade
+- Simple URL for sharing purposes
+- Authenticated locks for editing, so that only the user logged in can edit a user's list
+- Email verification for account creation
+- Toggle to identify all pokemon, all tradeable, or all not-tradeable
 
-### `npm test`
+##### Ideal but not necessary:
+- List sortable by pokemon name, number, trade status, and CP
+- Functionality to search a region and find users with a certain pokemon for trade
+- External contact information for a user's Slack/Discord/GroupMe integrated on their app profile
+- Ability to add friends in the app
+- Expansion to include all tradeable pokemon, not just Shiny pokemon
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Website colors:
+<img src = './images/colors.png' />
 
-### `npm run build`
+## View/ Controller:
+- View 1 is the homepage and authentication view, with login and register options
+- View 2 is the pokemon list page, on which people can view their pokemon and also add pokemon to their collection
+- View 3 is where a user can edit their profile information
+- A nav bar at the top will allow a user to access the different views and be able to log out
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Routes
+- / - Home and Authentication
+- /user/${username} - user list view and add functionality
+- /user/profile - user profile page and edit information
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Endpoints
+<img src = './images/endpoints.png' />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Controllers
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Schema (Database Design):
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Roles TABLE
+```SQL
+CREATE TABLE roles(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20),
+);
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+--EXAMPLE DUMMY DATA
+INSERT INTO users
+(name)
+VALUES
+('User'),
+('Admin');
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Users TABLE
+```SQL
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(50),
+    role_id INT REFERENCES roles(id)
+);
 
-## Learn More
+--EXAMPLE DUMMY DATA
+INSERT INTO users
+(username, password, profile_pic)
+VALUES
+('darls0n', 'd', 2),
+('wanderlass', 'd', 1);
+```
+### User Info TABLE
+```SQL
+CREATE TABLE user_info(
+    info_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    alt_name VARCHAR(100)
+    location VARCHAR(50),
+    user_id  INT REFERENCES users(id) 
+);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+--EXAMPLE DUMMY DATA
+INSERT INTO user_info
+(first_name, last_name, alt_name, location, user_id)
+VALUES
+('David', 'Carlson', 'darlson', 'Utah Valley', 1);
+```
+### Pokemon Table
+```SQL
+CREATE TABLE pokemon(
+    poke_id SERIAL PRIMARY KEY,
+    name VARCHAR(30),
+    number INT,
+    trade BOOLEAN
+    CP INT,
+    user_id  INT REFERENCES users(id) 
+);
+INSERT INTO pokemon
+(name, trade, CP, user_id)
+VALUES
+('Dragonite', false, 3792, 1),
+('Mewtwo', true, 2920, 1),
+('Sandshrew', true, null, 2);
+```
