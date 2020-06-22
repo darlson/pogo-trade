@@ -144,3 +144,9 @@ VALUES
 - Registered as a subdomain on my portfolio site, http://pogoshiny.darlson.com (5 pts)
 ##### Presentation
 - I will do one, and I will nail it (10 pts)
+
+## Component Tree
+<img src = './images/comptree.png' />
+
+## Wireframe 
+<img src = './images/wireframes.png' />
