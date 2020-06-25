@@ -146,7 +146,7 @@ VALUES
 - I will do one, and I will nail it (10 pts)
 
 ## Component Tree
-<img src = './images/comptree.png' />
+<img src = './images/comptree.jpg' />
 
 ## Wireframe 
-<img src = './images/wireframes.png' />
+<img src = './images/wireframes.jpg' />

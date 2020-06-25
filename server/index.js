@@ -35,8 +35,8 @@ app.delete('/api/delete', pokeCtrl.delete)
 massive({
     connectionString,
     ssl: { rejectUnauthorized: false }
-}).then ( db => {
+}).then( db => {
     app.set('db', db)
     console.log('db connected')
     app.listen(serverPort, () => console.log(`Showing off shiny pokemon on port ${serverPort}`))
-}).catch ( err => console.log(err))
+}).catch( err => console.log(err))
