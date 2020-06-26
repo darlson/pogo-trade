@@ -10,7 +10,7 @@ const registrationEmail = {
 module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db')
-        const {username, email, password} = req.body
+        const {username, password} = req.body
         const [user] = await db.check_user(username)
         if (!user){
             return res.status(404).send('User does not exist. Please register.')
@@ -40,7 +40,10 @@ module.exports = {
         const {username, email, password} = req.body
         
         const [existingUser] = await db.check_user(username)
+        console.log(`existingUser is: ${existingUser ? existingUser.username : null }`)
         const [existingEmail] = await db.check_email(email)
+        console.log(`existingEmail is: ${existingEmail? existingEmail.email : null }`)
+        
         if (existingUser){
             return res.status(409).send('User already exists. Please pick another username.')
         } else if (existingEmail){
@@ -49,6 +52,7 @@ module.exports = {
             const salt = bcrypt.genSaltSync(10)
             const hash = bcrypt.hashSync(password, salt)
             const [newUser] = await db.register([username, email, hash])
+            console.log('registered new')
 
             req.session.user = {
                 userId: newUser.id,
@@ -58,13 +62,30 @@ module.exports = {
         }
     },
     update: (req, res) => {
+        const db = req.app.get('db')
+        
+        if(!req.session.user){
+            return res.status(401).send('Please log in')
+        }
+        const {newPass} = req.body
+        const {username} = req.session.user
 
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(newPass, salt)
+        db.update_user(username, hash)
+        .then( () => res.status(200).send('Password updated'))
+        .catch( err => res.status(500).send(err))
     },
     logout: (req, res) => {
-
+        req.session.destroy()
+        res.sendStatus(200)
     },
     getUser: (req, res) => {
-
+        if(req.session.user){
+            res.status(200).send(req.session.user)
+        } else {
+            res.sendStatus(404)
+        }
     }
 
 }
