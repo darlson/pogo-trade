@@ -8,10 +8,43 @@ const registrationEmail = {
 }
 
 module.exports = {
+    register: async (req, res) => {
+        // const sendEmail = {...registrationEmail, to: email, html: `<h2>Welcome to Pogo Trade, ${username}! We're excited to trade with you.` }
+        // transporter.sendMail(sendEmail, (error, data) => {
+        //     if(error){
+        //         console.log(error)
+        //     } else {
+        //         console.log('Email sent')
+        //     }
+        // })
+        const db = req.app.get('db')
+        const {username, email, password, first_name, last_name, alt_name, location} = req.body
+        
+        const [existingUser] = await db.check_user({username, email})
+        .catch( () => console.log('error in checking username'))
+        
+        if ( existingUser && existingUser.username === username ){
+            return res.status(409).send('User already exists. Please pick another username.')
+        } else if ( existingUser && existingUser.email === email ){
+            return res.status(409).send('Email already exists. Please log in.')
+        } else {
+            const salt = bcrypt.genSaltSync(10)
+            const hash = bcrypt.hashSync(password, salt)
+            const [newUser] = await db.register([username, email, hash])
+            .catch( () => console.log('error in registering'))
+            console.log('registered new')
+
+            req.session.user = {
+                userId: newUser.id,
+                username: newUser.username
+            }
+            res.status(200).send(req.session.user)
+        }
+    },
     login: async (req, res) => {
         const db = req.app.get('db')
-        const {username, password} = req.body
-        const [user] = await db.check_user(username)
+        const {username, email, password} = req.body
+        const [user] = await db.check_user({username, email})
         if (!user){
             return res.status(404).send('User does not exist. Please register.')
         } else {
@@ -25,40 +58,6 @@ module.exports = {
             } else {
                 res.status(403).send('Username or password incorrect')
             }
-        }
-    },
-    register: async (req, res) => {
-        // const sendEmail = {...registrationEmail, to: email, html: `<h2>Welcome to Pogo Trade, ${username}! We're excited to trade with you.` }
-        // transporter.sendMail(sendEmail, (error, data) => {
-        //     if(error){
-        //         console.log(error)
-        //     } else {
-        //         console.log('Email sent')
-        //     }
-        // })
-        const db = req.app.get('db')
-        const {username, email, password} = req.body
-        
-        const [existingUser] = await db.check_user(username)
-        console.log(`existingUser is: ${existingUser ? existingUser.username : null }`)
-        const [existingEmail] = await db.check_email(email)
-        console.log(`existingEmail is: ${existingEmail? existingEmail.email : null }`)
-        
-        if (existingUser){
-            return res.status(409).send('User already exists. Please pick another username.')
-        } else if (existingEmail){
-            return res.status(409).send('Email already exists. Please log in.')
-        } else {
-            const salt = bcrypt.genSaltSync(10)
-            const hash = bcrypt.hashSync(password, salt)
-            const [newUser] = await db.register([username, email, hash])
-            console.log('registered new')
-
-            req.session.user = {
-                userId: newUser.id,
-                username: newUser.username
-            }
-            res.status(200).send(req.session.user)
         }
     },
     update: (req, res) => {

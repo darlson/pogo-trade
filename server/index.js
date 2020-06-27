@@ -5,6 +5,7 @@ require('dotenv').config()
 const app = express()
 const authCtrl = require('./controllers/AuthCtrl.js')
 const pokeCtrl = require('./controllers/PokeCtrl')
+const nameCtrl = require('./controllers/NameCtrl')
 
 const {serverPort, connectionString, secret} = process.env
 
@@ -24,6 +25,9 @@ app.post('/auth/register', authCtrl.register)
 app.put('/auth/update', authCtrl.update)
 app.delete('/auth/logout', authCtrl.logout)
 app.get('/auth/user', authCtrl.getUser)
+
+// All Pokemon names endpoint
+app.get('/api/pokemonList', nameCtrl.getAll)
 
 // Pokemon endpoints
 app.get('/api/pokemon', pokeCtrl.getAll)
