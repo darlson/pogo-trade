@@ -7,7 +7,7 @@ CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     username VARCHAR(50),
     email VARCHAR(100),
-    password VARCHAR(50),
+    password TEXT,
     role_id INT REFERENCES roles(id)
 );
 
@@ -23,8 +23,9 @@ CREATE TABLE user_info(
 CREATE TABLE pokemon(
     poke_id SERIAL PRIMARY KEY,
     name VARCHAR(30),
-    number INT,
+    dex INT,
     trade BOOLEAN,
     cp INT,
+    url TEXT,
     user_id INT REFERENCES users(id) 
 );

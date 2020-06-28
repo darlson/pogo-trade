@@ -36,11 +36,11 @@ export default function (state = initialState, action) {
             return {...state, pokemon: action.payload}
         case DELETE_POKEMON:
             return {...state, ...action.payload}
-        case: GET_POKEMON + '_PENDING':
+        case GET_POKEMON + '_PENDING':
             return state
-        case: GET_POKEMON + '_FULFILLED':
+        case GET_POKEMON + '_FULFILLED':
             return {...state, pokemon: action.payload.data}
-        case: GET_POKEMON + '_REJECTED':
+        case GET_POKEMON + '_REJECTED':
             return initialState
         default:
             return initialState
