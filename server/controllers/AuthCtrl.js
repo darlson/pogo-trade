@@ -46,12 +46,12 @@ module.exports = {
       const user_id = newUser.id;
       const [newUserInfo] = await db
         .register_userinfo({first_name, last_name, alt_name, location, user_id})
-        // .catch((err) => res.status(500).send(err));
+        .catch((err) => res.status(500).send(err));
+        const newUserObj = {...newUser, ...newUserInfo}
+        delete newUserObj.password
 
-      req.session.user = {
-        userId: newUser.id,
-        username: newUser.username,
-      };
+      req.session.user = newUserObj
+      
       return res.status(200).send(req.session.user);
     } 
     catch(err){
