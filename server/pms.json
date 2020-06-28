@@ -393,7 +393,7 @@
     "dex": 20,
     "name": {
       "de": "Rattikarl",
-      "en": "Raticate",
+      "en": "Raticate (Party Hat)",
       "fr": "Rattatac",
       "ja": "ラッタ",
       "kr": "레트라",
@@ -514,7 +514,7 @@
     "isotope": "_02",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Purple Party Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -527,7 +527,7 @@
     "dex": 26,
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Purple Party Hat)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -542,7 +542,7 @@
     "isotope": "_03",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Ash Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -556,7 +556,7 @@
     "isotope": "_03",
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Ash Hat)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -570,7 +570,7 @@
     "isotope": "_06",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Fragment Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -583,7 +583,7 @@
     "dex": 26,
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Fragment Hat)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -598,7 +598,7 @@
     "isotope": "_04",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Witch Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -611,7 +611,7 @@
     "dex": 26,
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Witch Hat)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -626,7 +626,7 @@
     "isotope": "_01",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Santa Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -640,7 +640,7 @@
     "isotope": "_01",
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Santa Hat)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -654,7 +654,7 @@
     "isotope": "_05",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Summer Hat 2018)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -668,7 +668,7 @@
     "isotope": "_05",
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Summer Hat 2018)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -682,7 +682,7 @@
     "isotope": "_07",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Flower Crown)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -696,7 +696,7 @@
     "isotope": "_07",
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Flower Crown)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -710,7 +710,7 @@
     "isotope": "_08",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Winter Beanie)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -724,7 +724,7 @@
     "isotope": "_08",
     "name": {
       "de": "Raichu",
-      "en": "Raichu",
+      "en": "Raichu (Winter Beanie)",
       "fr": "Raichu",
       "ja": "ライチュウ",
       "kr": "라이츄",
@@ -738,7 +738,7 @@
     "isotope": "_10",
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Straw Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -751,7 +751,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Fall 2019)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -780,7 +780,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Red Party Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -794,7 +794,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Liverpool Safari Cap)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -808,7 +808,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Flower Hat)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -822,7 +822,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Charizard Cap)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -836,14 +836,13 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Umbreon Cap)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
       "zh": "皮卡丘"
     },
-    "shiny_released": false,
-    "released_date": "2020/05/08",
+    "shiny_released": true,
     "isotope": "_23",
     "family": "Pikachu_23"
   },
@@ -851,14 +850,13 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Rayquaza Cap)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
       "zh": "皮卡丘"
     },
-    "shiny_released": false,
-    "released_date": "2020/05/15",
+    "shiny_released": true,
     "isotope": "_24",
     "family": "Pikachu_24"
   },
@@ -866,7 +864,7 @@
     "dex": 25,
     "name": {
       "de": "Pikachu",
-      "en": "Pikachu",
+      "en": "Pikachu (Lucario Cap)",
       "fr": "Pikachu",
       "ja": "ピカチュウ",
       "kr": "피카츄",
@@ -1000,7 +998,7 @@
     "dex": 33,
     "name": {
       "de": "Nidorino",
-      "en": "Nidorino",
+      "en": "Nidorino (Party Hat)",
       "fr": "Nidorino",
       "ja": "ニドリーノ",
       "kr": "니드리노",
@@ -1962,7 +1960,7 @@
     "dex": 94,
     "name": {
       "de": "Gengar",
-      "en": "Gengar",
+      "en": "Gengar (Party Hat)",
       "fr": "Ectoplasma",
       "ja": "ゲンガー",
       "kr": "팬텀",
@@ -2509,9 +2507,9 @@
   },
   {
     "dex": 133,
-    "name": {
+    "name": { 
       "de": "Evoli",
-      "en": "Eevee",
+      "en": "Eevee (Flower Crown)",
       "fr": "Évoli",
       "ja": "イーブイ",
       "kr": "이브이",
@@ -2525,7 +2523,7 @@
     "dex": 133,
     "name": {
       "de": "Evoli",
-      "en": "Eevee",
+      "en": "Eevee (Red Party Hat)",
       "fr": "Évoli",
       "ja": "イーブイ",
       "kr": "이브이",
@@ -2552,7 +2550,7 @@
     "dex": 134,
     "name": {
       "de": "Aquana",
-      "en": "Vaporeon",
+      "en": "Vaporeon (Flower Crown)",
       "fr": "Aquali",
       "ja": "シャワーズ",
       "kr": "샤미드",
@@ -2579,7 +2577,7 @@
     "dex": 135,
     "name": {
       "de": "Blitza",
-      "en": "Jolteon",
+      "en": "Jolteon (Flower Crown)",
       "fr": "Voltali",
       "ja": "サンダース",
       "kr": "쥬피썬더",
@@ -2606,7 +2604,7 @@
     "dex": 136,
     "name": {
       "de": "Flamara",
-      "en": "Flareon",
+      "en": "Flareon (Flower Crown)",
       "fr": "Pyroli",
       "ja": "ブースター",
       "kr": "부스터",
@@ -3089,7 +3087,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Purple Party Hat)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3104,7 +3102,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Ash Hat)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3119,7 +3117,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Witch Hat)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3134,7 +3132,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Summer Hat 2018)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3149,7 +3147,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Winter Beanie)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3164,7 +3162,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Santa Hat)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3179,7 +3177,7 @@
     "dex": 172,
     "name": {
       "de": "Pichu",
-      "en": "Pichu",
+      "en": "Pichu (Flower Crown)",
       "fr": "Pichu",
       "ja": "ピチュー",
       "kr": "피츄",
@@ -3235,7 +3233,7 @@
     "dex": 175,
     "name": {
       "de": "Togepi",
-      "en": "Togepi",
+      "en": "Togepi (Flower Crown)",
       "fr": "Togepi",
       "ja": "トゲピー",
       "kr": "토게피",
@@ -3522,7 +3520,7 @@
     "dex": 196,
     "name": {
       "de": "Psiana",
-      "en": "Espeon",
+      "en": "Espeon (Flower Crown)",
       "fr": "Mentali",
       "ja": "エーフィ",
       "kr": "에브이",
@@ -3549,7 +3547,7 @@
     "dex": 197,
     "name": {
       "de": "Nachtara",
-      "en": "Umbreon",
+      "en": "Umbreon (Flower Crown)",
       "fr": "Noctali",
       "ja": "ブラッキー",
       "kr": "블래키",
@@ -3628,7 +3626,7 @@
     "dex": 202,
     "name": {
       "de": "Woingenau",
-      "en": "Wobbuffet",
+      "en": "Wobbuffet (Party Hat)",
       "fr": "Qulbutoké",
       "ja": "ソーナンス",
       "kr": "마자용",
@@ -4058,7 +4056,7 @@
     "dex": 234,
     "name": {
       "de": "Damhirplex",
-      "en": "Stantler",
+      "en": "Stantler (Bells)",
       "fr": "Cerfrousse",
       "ja": "オドシシ",
       "kr": "노라키",
@@ -4479,7 +4477,7 @@
     "dex": 265,
     "name": {
       "de": "Waumpel",
-      "en": "Wurmple",
+      "en": "Wurmple (Party Hat)",
       "fr": "Chenipotte",
       "ja": "ケムッソ",
       "kr": "개무소",
@@ -6790,7 +6788,7 @@
     "dex": 427,
     "name": {
       "de": "Haspiror",
-      "en": "Buneary",
+      "en": "Buneary (Flower Crown)",
       "fr": "Laporeille",
       "ja": "ミミロル",
       "kr": "이어롤",
@@ -7358,7 +7356,7 @@
     "dex": 470,
     "name": {
       "de": "Folipurba",
-      "en": "Leafeon",
+      "en": "Leafeon (Flower Crown)",
       "fr": "Phyllali",
       "ja": "リーフィア",
       "kr": "리피아",
@@ -7385,7 +7383,7 @@
     "dex": 471,
     "name": {
       "de": "Glaziola",
-      "en": "Glaceon",
+      "en": "Glaceon (Flower Crown)",
       "fr": "Givrali",
       "ja": "グレイシア",
       "kr": "글레이시아",
