@@ -1,29 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import routes from './routes'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+// import { ToastContainer } from 'react-toastify'
+// import 'react-toastify/dist/ReactToastify.css'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {getUser} from './redux/authReducer'
 
-function App() {
+function App(props) {
+  // const (user, stateUser) = useEffect
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <ToastContainer />
+      App.js
+      {props.location.pathname === '/' ? null : <Nav /> }
+      
+      {routes}
+      <Footer/>
+      {/* <ToastContainer /> */}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => state
+export default connect(mapStateToProps, {getUser})(withRouter(App))

@@ -6,8 +6,18 @@ const app = express()
 const authCtrl = require('./controllers/AuthCtrl.js')
 const pokeCtrl = require('./controllers/PokeCtrl')
 const nameCtrl = require('./controllers/NameCtrl')
+const nodemailer = require('nodemailer')
 
-const {serverPort, connectionString, secret} = process.env
+const {serverPort, connectionString, secret, SERVER_EMAIL, SERVER_PASSWORD} = process.env
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: SERVER_EMAIL,
+        pass: SERVER_PASSWORD
+    }
+})
+app.set('transporter', transporter)
 
 app.use(express.json())
 app.use(

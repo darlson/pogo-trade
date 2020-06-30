@@ -1,23 +1,12 @@
 const bcrypt = require("bcrypt");
+require('dotenv').config()
+const {SERVER_EMAIL} = process.env
 
-const registrationEmail = {
-  from: "pogotrade.app@gmail.com",
-  to: "",
-  subject: "Welcome to Pogo Trade!",
-  html: "",
-};
 
 module.exports = {
   register: async (req, res) => {
-    // const sendEmail = {...registrationEmail, to: email, html: `<h2>Welcome to Pogo Trade, ${username}! We're excited to trade with you.` }
-    // transporter.sendMail(sendEmail, (error, data) => {
-    //     if(error){
-    //         console.log(error)
-    //     } else {
-    //         console.log('Email sent')
-    //     }
-    // })
     const db = req.app.get("db");
+    const transporter = req.app.get('transporter')
     const {
       username,
       email,
@@ -27,35 +16,56 @@ module.exports = {
       alt_name,
       location,
     } = req.body;
-
+    
     const [existingUser] = await db
-      .check_user({ username, email })
-      .catch((err) => res.status(500).send(err));
-
+    .check_user({ username, email })
+    .catch((err) => res.status(500).send(err));
+    
     if (existingUser && existingUser.username === username) {
       return res
-        .status(409)
-        .send("User already exists. Please pick another username.");
+      .status(409)
+      .send("User already exists. Please pick another username.");
     } else if (existingUser && existingUser.email === email) {
       return res.status(409).send("Email already exists. Please log in.");
-    } 
+    }
     try {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
       const [newUser] = await db.register_user([username, email, hash]);
       const user_id = newUser.id;
       const [newUserInfo] = await db
-        .register_userinfo({first_name, last_name, alt_name, location, user_id})
-        .catch((err) => res.status(500).send(err));
-        const newUserObj = {...newUser, ...newUserInfo}
-        delete newUserObj.password
-
-      req.session.user = newUserObj
+      .register_userinfo({
+        first_name,
+        last_name,
+        alt_name,
+        location,
+        user_id,
+      })
+      .catch((err) => res.status(500).send(err));
+      const newUserObj = { ...newUser, ...newUserInfo };
+      delete newUserObj.password;
       
+      req.session.user = newUserObj;
+      
+      // NODEMAILER
+      const registrationEmail = {
+        from: SERVER_EMAIL,
+        to: email,
+        subject: 'Welcome to PogoTrade!',
+        html: '',
+        text: "Thank you for registering and joining the PogoTrade community. We're excited to see your Shiny collection!"
+      }
+      transporter.sendMail(registrationEmail, (error, data) => {
+        if(error){
+          console.log('Nodemailer welcome email failed to send.')
+        } else {
+          console.log('Nodemailer welcome mail sent.')
+        }
+      })
+
       return res.status(200).send(req.session.user);
-    } 
-    catch(err){
-        return res.status(500).send('Something went wrong.')
+    } catch (err) {
+      return res.status(500).send("Something went wrong.");
     }
   },
   login: async (req, res) => {
@@ -66,12 +76,13 @@ module.exports = {
     if (!user) {
       return res.status(404).send("User does not exist. Please register.");
     } else {
+      const [userInfo] = await db.check_userinfo([user.id]);
+      const userObj = {...user, ...userInfo}
+      delete userObj.password
       const authenticated = bcrypt.compareSync(password, user.password);
       if (authenticated) {
-        req.session.user = {
-          userId: user.id,
-          username: user.username,
-        };
+        req.session.user = userObj
+        
         res.status(200).send(req.session.user);
       } else {
         res.status(403).send("Username or password incorrect");
