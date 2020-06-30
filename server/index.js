@@ -19,6 +19,7 @@ const transporter = nodemailer.createTransport({
 })
 app.set('transporter', transporter)
 
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json())
 app.use(
     session({
