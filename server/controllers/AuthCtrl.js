@@ -44,6 +44,9 @@ module.exports = {
       .catch((err) => res.status(500).send(err));
       const newUserObj = { ...newUser, ...newUserInfo };
       delete newUserObj.password;
+      delete newUserObj.info_id;
+      delete newUserObj.role_id;
+      delete newUserObj.user_id;
       
       req.session.user = newUserObj;
       
@@ -62,6 +65,7 @@ module.exports = {
           console.log('Nodemailer welcome mail sent.')
         }
       })
+      //  /nodemailer
 
       return res.status(200).send(req.session.user);
     } catch (err) {
@@ -79,6 +83,9 @@ module.exports = {
       const [userInfo] = await db.check_userinfo([user.id]);
       const userObj = {...user, ...userInfo}
       delete userObj.password
+      delete userObj.info_id;
+      delete userObj.role_id;
+      delete userObj.user_id;
       const authenticated = bcrypt.compareSync(password, user.password);
       if (authenticated) {
         req.session.user = userObj
