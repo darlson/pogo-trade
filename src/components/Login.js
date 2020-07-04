@@ -1,60 +1,45 @@
-import React from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {loginUser} from '../redux/authReducer'
 import {Link} from 'react-router-dom'
+import {toast} from 'react-toastify'
 
-// const Login = (props) => {
-class Login extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            value: '',
-            password: ''
-        }
-    }
+const Login = props => {
+    const [value, setValue] = useState('')
+    const [password, setPassword] = useState('')
 
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-
-    login = e => {
+    const login = e => {
         e.preventDefault()
-        const {value, password} = this.state
         axios.post('/auth/login', {value, password})
         .then( res => {
-            this.props.loginUser(res.data)
-            this.props.history.push('/dashboard')
+            props.loginUser(res.data)
+            props.history.push('/dashboard')
         })
-        .catch ( err => {
-            alert(err.response.data)
+        .catch( err => {
+            toast.error(err.response.data)
         })
     }
-
-    render() {
-        const {value, password} = this.state
-        return (
-            <div>
-                <form onSubmit={e => this.login(e)}>
+    
+    return (
+        <div>
+                <form onSubmit={e => login(e)}>
                     <input 
                         type='text' 
                         placeholder='username or email' 
-                        name='value' 
                         value={value} 
-                        onChange={e => this.handleChange(e)}/>
+                        onChange={(e, v) => setValue(e.target.value)}/>
                     <input 
                         type='password' 
                         placeholder='password' 
-                        name='password' 
                         value={password} 
-                        onChange={e => this.handleChange(e)}/>
+                        onChange={(e, v) => setPassword(e.target.value)}/>
                     <button type='submit'>Login</button>
                 </form>
                 <span>Don't have an account? </span>
                 <Link to='/register'>Register now!</Link>
             </div>
-        )
-    }
+    )
 }
 
 const mapStateToProps = state => state

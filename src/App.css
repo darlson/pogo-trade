@@ -8,11 +8,20 @@
   height: 100vh;
 }
 
-nav {
+.nav-container {
   background-color: white;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav {
+  justify-content: space-around;
 }
 .app-logo {
   width: 100px;
+  max-height: 80px;
+  padding: 5px;
 }
 
 footer {
