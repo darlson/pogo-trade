@@ -18,7 +18,6 @@ module.exports = {
                 pm.url = getImgSrc(pm.fn)
                 return pm
             })
-            // console.log(pokemonList)
             res.status(200).send(listWithURL)
         }
         catch(err){

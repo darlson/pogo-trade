@@ -23,7 +23,6 @@ class Login extends React.Component {
         const {value, password} = this.state
         axios.post('/auth/login', {value, password})
         .then( res => {
-            console.log(res.data)
             this.props.loginUser(res.data)
             this.props.history.push('/dashboard')
         })

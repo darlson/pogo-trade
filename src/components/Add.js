@@ -20,7 +20,6 @@ const Add = (props) => {
     //     axios.post('/api/add', {...selected, cp, trade})
     }
 
-    console.log(selected);
     return (
         <div>
             <Autocomplete
