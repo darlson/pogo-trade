@@ -1,102 +1,82 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {loginUser} from '../redux/authReducer'
 import {Link} from 'react-router-dom'
+import {toast} from 'react-toastify'
 
-// const Register = (props) => {
-class Register extends React.Component {
-    constructor () {
-        super()
-        this.state = {
-            username: '',
-            email: '',
-            password: '',
-            first_name: '',
-            last_name: '',
-            alt_name: '',
-            location: '',
-        }
-    }
+const Register = (props) => {
+        const [username, setUsername ] = useState('')
+        const [email, setEmail ] = useState('')
+        const [password, setPassword ] = useState('')
+        const [first_name, setFN ] = useState('')
+        const [last_name, setLN ] = useState('')
+        const [alt_name, setAN ] = useState('')
+        const [location, setLocation ] = useState('')
 
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-
-    register = e => {
+    const register = e => {
         e.preventDefault()
-        const {username, email, password, first_name, last_name, alt_name, location } = this.state
         axios.post('/auth/register', {username, email, password, first_name, last_name, alt_name, location})
         .then( res => {
-            this.props.loginUser(res.data)
-            this.props.history.push('/dashboard')
+            props.loginUser(res.data)
+            props.history.push('/dashboard')
         })
         .catch( err => {
-            alert(err.response.data)
+            toast.error(err.response.data)
         })
     }
     
-    render() {
-        const {username, email, password, first_name, last_name, alt_name, location } = this.state
-        return (
-            <div>
-                <form onSubmit={e => this.register(e)}>
+    return (
+        <div>
+            <form onSubmit={e => register(e)}>
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='Username' 
-                        name='username' 
-                        value={username}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='Username' 
+                    value={username}
+                    onChange={e => setUsername(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='Email' 
-                        name='email' 
-                        value={email}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='Email' 
+                    value={email}
+                    onChange={e => setEmail(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='password' 
-                        placeholder='Password' 
-                        name='password' 
-                        value={password}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='password' 
+                    placeholder='Password' 
+                    value={password}
+                    onChange={e => setPassword(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='First Name' 
-                        name='first_name' 
-                        value={first_name}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='First Name' 
+                    value={first_name}
+                    onChange={e => setFN(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='Last Name' 
-                        name='last_name' 
-                        value={last_name}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='Last Name' 
+                    value={last_name}
+                    onChange={e => setLN(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='Username on Slack/Discord' 
-                        name='alt_name' 
-                        value={alt_name}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='Username on Slack/Discord' 
+                    value={alt_name}
+                    onChange={e => setAN(e.target.value)} />
                 <input 
-                        className='login-input'
-                        type='text' 
-                        placeholder='Location' 
-                        name='location' 
-                        value={location}
-                        onChange={e => this.handleChange(e)} />
+                    className='login-input'
+                    type='text' 
+                    placeholder='Location' 
+                    value={location}
+                    onChange={e => setLocation(e.target.value)} />
                 <button type='submit'>Register</button>
-                </form>
-                <span>Already have an account? </span>
-                <Link to='/'>Login now!</Link>
-            </div>
-        )
-    }
+            </form>
+            <span>Already have an account? </span>
+            <Link to='/'>Login now!</Link>
+        </div>
+    )
 }
 
 const mapStateToProps = state => state

@@ -23,22 +23,24 @@ const Login = props => {
     
     return (
         <div>
-                <form onSubmit={e => login(e)}>
-                    <input 
-                        type='text' 
-                        placeholder='username or email' 
-                        value={value} 
-                        onChange={(e, v) => setValue(e.target.value)}/>
-                    <input 
-                        type='password' 
-                        placeholder='password' 
-                        value={password} 
-                        onChange={(e, v) => setPassword(e.target.value)}/>
-                    <button type='submit'>Login</button>
-                </form>
-                <span>Don't have an account? </span>
-                <Link to='/register'>Register now!</Link>
-            </div>
+            <form onSubmit={e => login(e)}>
+                <input 
+                    className='login-input'
+                    type='text' 
+                    placeholder='username or email' 
+                    value={value} 
+                    onChange={(e, v) => setValue(e.target.value)}/>
+                <input 
+                    className='login-input'
+                    type='password' 
+                    placeholder='password' 
+                    value={password} 
+                    onChange={(e, v) => setPassword(e.target.value)}/>
+                <button type='submit'>Login</button>
+            </form>
+            <span>Don't have an account? </span>
+            <Link to='/register'>Register now!</Link>
+        </div>
     )
 }
 
