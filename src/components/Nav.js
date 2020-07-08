@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {logoutUser} from '../redux/authReducer'
@@ -6,8 +6,8 @@ import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import logo from '../images/pogotrade.png'
 
-// const Nav = (props) => {
-class Nav extends Component {  
+const Nav = (props) => {
+// class Nav extends Component {  
     logout = () => {
         axios.delete('/auth/logout').then( () => {
             this.props.logoutUser()
